@@ -2815,8 +2815,6 @@
                             data-csa-c-type="widget" data-csa-c-content-id="imageBlock"
                             data-csa-c-slot-id="imageBlock_feature_div" data-csa-c-asin="B075CYMYK6"
                             data-csa-c-is-in-initial-active-row="false">
-                            <script type="a-state"
-                                data-a-state="{&quot;key&quot;:&quot;imageBlockStateData&quot;}">{"shouldRemoveCaption":false}</script>
                             <div id="imageBlock" data-csa-c-content-id="image-block-desktop"
                                 data-csa-c-slot-id="image-block" data-csa-c-type="widget" data-csa-op-log-render=""
                                 aria-hidden="true" class="a-section imageBlockRearch">
@@ -3090,15 +3088,6 @@
                             data-csa-c-type="widget" data-csa-c-content-id="showroom"
                             data-csa-c-slot-id="showroom_feature_div" data-csa-c-asin="B075CYMYK6"
                             data-csa-c-is-in-initial-active-row="false">
-                            <script type="text/javascript">
-                                P.when("showroom-lite-atf-feature-data").execute(function (dataModule) {
-                                    try {
-                                        dataModule.setData();
-                                    } catch (e) {
-                                        console.log(e);
-                                    }
-                                });
-                            </script>
                         </div>
                         <div id="energyEfficiency_feature_div" class="celwidget" data-feature-name="energyEfficiency"
                             data-csa-c-type="widget" data-csa-c-content-id="energyEfficiency"
@@ -3195,33 +3184,6 @@
                                     <a id="acrCustomerReviewLink" class="a-link-normal" href="#customerReviews"> <span
                                             id="acrCustomerReviewText" class="a-size-base">17,355 ratings</span> </a>
                                 </span>
-                                <script type="text/javascript">
-
-                                    var dpAcrHasRegisteredArcLinkClickAction;
-                                    P.when('A', 'ready').execute(function (A) {
-                                        if (dpAcrHasRegisteredArcLinkClickAction !== true) {
-                                            dpAcrHasRegisteredArcLinkClickAction = true;
-                                            A.declarative(
-                                                'acrLink-click-metrics', 'click',
-                                                { "allowLinkDefault": true },
-                                                function (event) {
-                                                    if (window.ue) {
-                                                        ue.count("acrLinkClickCount", (ue.count("acrLinkClickCount") || 0) + 1);
-                                                    }
-                                                }
-                                            );
-                                        }
-                                    });
-                                </script>
-                                <script type="text/javascript">
-                                    P.when('A', 'cf').execute(function (A) {
-                                        A.declarative('acrStarsLink-click-metrics', 'click', { "allowLinkDefault": true }, function (event) {
-                                            if (window.ue) {
-                                                ue.count("acrStarsLinkWithPopoverClickCount", (ue.count("acrStarsLinkWithPopoverClickCount") || 0) + 1);
-                                            }
-                                        });
-                                    });
-                                </script>
 
                             </div>
                         </div>
@@ -3229,8 +3191,6 @@
                             data-csa-c-type="widget" data-csa-c-content-id="acBadge"
                             data-csa-c-slot-id="acBadge_feature_div" data-csa-c-asin="B075CYMYK6"
                             data-csa-c-is-in-initial-active-row="false">
-                            <script type="a-state"
-                                data-a-state="{&quot;key&quot;:&quot;acState&quot;}">{"acAsin":"B075CYMYK6"}</script>
                         </div>
                         <div id="amazonExclusiveBadge_feature_div" class="celwidget"
                             data-feature-name="amazonExclusiveBadge" data-csa-c-type="widget"
@@ -3281,8 +3241,6 @@
                                             past month</span> </span>
                                 </div>
                             </div>
-                            <script type="a-state"
-                                data-a-state="{&quot;key&quot;:&quot;social-proofing-page-state&quot;}">{"isInternal":false,"isRobot":false,"showFaceout":true,"merchantId":"ATVPDKIKX0DER","availableBadges":"","loggedIn":false,"asin":"B075CYMYK6","showBadge":false,"availableFaceouts":"TK_BOUGHT"}</script>
                         </div>
                         <div id="socialFabric_feature_div" class="celwidget" data-feature-name="socialFabric"
                             data-csa-c-type="widget" data-csa-c-content-id="socialFabric"
@@ -3424,13 +3382,6 @@
                                                         }
                                                     </style>
 
-                                                    <script type="text/javascript">
-                                                        P.when('A', 'a-popover').execute('a-popover-count', function (A) {
-                                                            A.declarative('a-popover', 'mouseenter', function () {
-                                                                ue.count("tooltip.popover.opened", 1);
-                                                            });
-                                                        });
-                                                    </script>
                                                 </span> </span> </div>
                                     </div>
                                     <div id="vaipsCombinedDeviceAndPlanExperience_feature_div" class="celwidget"
@@ -3489,84 +3440,7 @@
                                         data-csa-c-asin="B075CYMYK6" data-csa-c-is-in-initial-active-row="false">
                                         <input type="hidden" id="deliveryBlockSelectAsin" value="B075CYMYK6" />
                                         <input type="hidden" id="deliveryBlockSelectMerchant" value="ATVPDKIKX0DER" />
-                                        <script type="text/javascript">
-                                            P.when("A", "jQuery").execute(function (A, $) {
-                                                $("#selectQuantity [name='quantity'], #mobileQuantityDropDown").live("change", function (event) {
-                                                    if (event.updatePromiseBadgeOnQuantityChange) {
-                                                        return;
-                                                    }
 
-                                                    event.updatePromiseBadgeOnQuantityChange = 1;
-
-                                                    // "#buybox" is included in this list because if there is no accordion row, then it is a single-offer layout
-                                                    // possible id's may include "usedAccordionRow", "newAccordionRow_1", "newAccordionRow_2"
-                                                    var accordionRow = $(this).closest('[id$="AccordionRow"], #buybox, [id^="newAccordionRow"]');
-
-                                                    var quantity = $(this).val();
-                                                    // This asin and merchantId will support use case in US marketplace.
-                                                    // DDM will be required here to support the feature in IN marketplace
-                                                    var asin = accordionRow.find("#deliveryBlockSelectAsin").val();
-                                                    var merchantId = accordionRow.find("#deliveryBlockSelectMerchant").val();
-
-                                                    if (!asin) {
-                                                        asin = accordionRow.find("#ftSelectAsin").val();
-                                                    }
-                                                    if (!merchantId) {
-                                                        merchantId = accordionRow.find("#ftSelectMerchant").val();
-                                                    }
-
-                                                    if (!asin || !quantity) {
-                                                        return;
-                                                    }
-
-                                                    var params = [];
-                                                    params.push("asin=" + asin);
-                                                    params.push("quantity=" + quantity);
-                                                    params.push("exclusiveMerchantId=" + merchantId);
-                                                    params.push("merchantId=" + merchantId);
-                                                    params.push("clientId=retailwebsite");
-                                                    params.push("deviceType=web");
-                                                    params.push("showFeatures=priceBlockMs3Mir");
-                                                    params.push("ie=UTF8");
-                                                    params.push("experienceId=priceBadgingQuantityRefreshAjaxExperience");
-
-                                                    // Weblab gated addition of Locale to QuantityRefresh request
-                                                    var addLocaleToQuantityRefreshWeblabFlag = false;
-                                                    if (addLocaleToQuantityRefreshWeblabFlag) {
-                                                        var locale = accordionRow.find("#deliveryBlockSelectLocale").val();
-
-                                                        // Only add language param if locale is non-null
-                                                        if (locale) {
-                                                            params.push("language=" + locale);
-                                                        }
-                                                    }
-
-                                                    $.ajax({
-                                                        type: "GET",
-                                                        url: "/gp/product/ajax?",
-                                                        contentType: 'application/x-www-form-urlencoded;charset=utf-8',
-                                                        data: params.join('&'),
-                                                        accordionRow: accordionRow,
-                                                        dataType: "html",
-                                                        success: function (objResponse) {
-                                                            if (objResponse != null && objResponse != "") {
-                                                                accordionRow.find("#priceBadging_feature_div").replaceWith(objResponse);
-
-                                                                // If it's a single buying option layout or the new buy box quantity changed, update data outside the buy box
-                                                                if ($("#buyBoxAccordion, #buybox").children().length === 1 || accordionRow.attr("id").match(/^newAccordionRow/)) {
-                                                                    $("#price #priceblock_ourprice_row #ourprice_shippingmessage #priceBadging_feature_div").replaceWith(objResponse);
-                                                                    $("#newOfferShippingMessage_feature_div #ourPrice_availability #priceBadging_feature_div").replaceWith(objResponse);
-                                                                    $("#price #priceblock_saleprice_row #saleprice_shippingmessage #priceBadging_feature_div").replaceWith(objResponse);
-                                                                    $("#price #priceblock_dealprice_row #dealprice_shippingmessage #priceBadging_feature_div").replaceWith(objResponse);
-                                                                }
-                                                            }
-                                                        }
-                                                    });
-
-                                                    return;
-                                                });
-                                            });
-                                        </script>
                                     </div>
                                     <div id="freeShippingPriceBadging_feature_div" class="celwidget"
                                         data-feature-name="freeShippingPriceBadging" data-csa-c-type="widget"
@@ -6278,8 +6152,6 @@
                     data-csa-c-slot-id="miraiBTFShopByLook_feature_div" data-csa-c-asin=""
                     data-csa-c-is-in-initial-active-row="false">
                     <div id='desktop-dp-btf-shopbylook' cel_widget_id='sbl-dp-desktop' class='celwidget  sbl-dp-v29   '>
-                        <script type="a-state"
-                            data-a-state="{&quot;key&quot;:&quot;shopbylookStateData&quot;}">{"mainAsin":"B075CYMYK6","refinementStarsAndUp":"${count} Stars & Up","initialAsinList":"B075CYMYK6,B08CF731N1,B08CFZF16Y,B07GF4ZCXJ,B01LZZ4WOK,B09ZD6H3XD,B071KHTNTS,B084P4WRPS,B08628GW1P,B07PM6Q8D4,B0BXNTHJ1Z,B07R4TMNXK,B08MX3B6TP,B07VWXV167,B07FKY1R5F,B099NW376R,B07FMX32KT,B01ENR28I2,B013RTEO20,B0CSTF87LQ,B0BWK472TB,B08S5WB1SB,B0C865LRY5,B0BF25SS6Q,B08NT2DM8K,B0CVJ531W4,B0CYTC7X32,B0CB4V11NK,B0CYTG5F9W,B0CGV91YJH,B0CQR8N5HD,B0BR8234RM,B083SDCQL4,B0C3GCH5XL,B09MTTJMR7,B0D5R3T5SH,B0BQPTVS78,B09B7CCBM3,B09BLBGK2T,B09BLZ9191,B09CDCY1QN,B091CV7NRS,B08ZJ5ZRVV,B092H71MQ2,B0D5R6G4JY,B0BK984LPW,B0CFZSFGBF,B0CWNJXV6F,B0BKY2VLWV,B07PH9RR3R,B0D796JMPG,B01GZU7ILM,B0B6NHPVCP,B01G06XM16,B091F43H3G,B0D2S1J9DG,B0CRGSVV41,B0CSYZ76YB,B0CW5XL252,B0CRVJ73PG,B0CRVHDFY1,B0C35HNPW9,B0CP6HXWH4,B08F31T7MH,B08YFH1NLG,B08F31PJ16,B0991JHP9G,B08T964F39,B0CHRPM7WL,B0BX3ZRZ4T,B0BZS1D9R9,B07ZTWY4S7,B08NSV41QJ,B0CTMJ6RRW,B08S5KVQB7,B0BT8DXGRB,B0CXY22GCV,B0D44X979F,B0D46CWJYK,B0CP3FTR58,B0CYTD9QZP,B0BRJYG2QK,B0CSK9J43G,B0D5KQH9LQ,B09GXNKJSP,B09GN1JLB8,B09CDFJ9WH,B09C5Y5YCZ,B09CGMSJWB,B0BVVN8SB7,B0BWYNQ54S,B0C9MBH2XD,B0D66VN3YV,B0CPSQ8C66,B0BD2V8ZKL,B0D1R456XL,B0D2BCRKMP,B0D4QHWVG3,B096DZ6FTY,B0D78DZ5VB,B0D78J99XB,B09TDMF7D8,B0D44QZ86D,B0D46BD2JC,B0B2C2LF2B,B0CDBSR45V,B0BXJ2HKHB,B0D6VZ9L9M,B091F3ZCR5,B08YJMHQJ6,B0BQBYCZXV,B09R8VH35B,B0CSFBV5QG,B0CRRHSZX9,B0CSDJZWGC,B0CSYVXV5H,B0CRH5CBJB,B0CSFBHJFQ,B0CRVHF7XY,B0CRNBLN6Q","searchInputTitle":"Discover similar items for ${query}","refinementResultCountStr":"Show {count} results","browseNode":"kitchen-electric-cookware","mainAsinPid":"61wFMqjBUbL"}</script>
                         <hr>
                         <h2 id="sbl-header-title" class="mirai-btf-shopbylook-header">
                             Discover similar items</h2>
@@ -7197,32 +7069,7 @@
 * Padding and margin for element should be 10, 20, 40, or 80 px. Considering mini 10, small 20, medium 40, large 80.
 */
                                 </style>
-                                <script type="text/javascript">(function (f) { var _np = (window.P._namespace("PremiumAplusModule")); if (_np.guardFatal) { _np.guardFatal(f)(_np); } else { f(_np); } }(function (P) {
-                                        P.now('premium-module-10-hotspot-desktop').execute(function (init) {
-                                            if (init) {
-                                                return;
-                                            }
-                                            P.register('premium-module-10-hotspot-desktop', function () {
-                                                return function () {
-                                                    P.when('jQuery', 'a-popover', 'ready').execute(function ($, popover) {
-                                                        var $hoverPoints = $('.aplus-v2 .premium-aplus-module-10 .hover-point');
-                                                        $hoverPoints.each(function (i, trigger) {
-                                                            return popover.create(trigger, $(trigger).data());
-                                                        });
-                                                        $hoverPoints.hover(
-                                                            function () {
-                                                                $(this).focus();
-                                                                $(this).addClass('selected');
-                                                            },
-                                                            function () {
-                                                                $(this).removeClass('selected');
-                                                            }
-                                                        );
-                                                    });
-                                                };
-                                            });
-                                        });
-                                    }));</script>
+
                                 <div class="celwidget aplus-module premium-module-2-fullbackground-image aplus-premium"
                                     cel_widget_id="aplus-premium-module-2-fullbackground-image">
                                     <div class="a-section a-spacing-none premium-aplus premium-aplus-module-2">
@@ -7375,11 +7222,7 @@
                 </div>" data-position="triggerHorizontal" />
                                         </div>
                                     </div>
-                                    <script type="text/javascript">(function (f) { var _np = (window.P._namespace("PremiumAplusModule")); if (_np.guardFatal) { _np.guardFatal(f)(_np); } else { f(_np); } }(function (P) {
-                                            P.when('premium-module-10-hotspot-desktop').execute(function (init) {
-                                                init();
-                                            });
-                                        }));</script>
+
                                 </div>
 
                                 <div class="celwidget aplus-module premium-module-2-fullbackground-image aplus-premium"
@@ -7610,33 +7453,7 @@
                                                                             id="acrCustomerReviewText"
                                                                             class="a-size-base">17,355 ratings</span>
                                                                     </a> </span>
-                                                                <script type="text/javascript">
 
-                                                                    var dpAcrHasRegisteredArcLinkClickAction;
-                                                                    P.when('A', 'ready').execute(function (A) {
-                                                                        if (dpAcrHasRegisteredArcLinkClickAction !== true) {
-                                                                            dpAcrHasRegisteredArcLinkClickAction = true;
-                                                                            A.declarative(
-                                                                                'acrLink-click-metrics', 'click',
-                                                                                { "allowLinkDefault": true },
-                                                                                function (event) {
-                                                                                    if (window.ue) {
-                                                                                        ue.count("acrLinkClickCount", (ue.count("acrLinkClickCount") || 0) + 1);
-                                                                                    }
-                                                                                }
-                                                                            );
-                                                                        }
-                                                                    });
-                                                                </script>
-                                                                <script type="text/javascript">
-                                                                    P.when('A', 'cf').execute(function (A) {
-                                                                        A.declarative('acrStarsLink-click-metrics', 'click', { "allowLinkDefault": true }, function (event) {
-                                                                            if (window.ue) {
-                                                                                ue.count("acrStarsLinkWithPopoverClickCount", (ue.count("acrStarsLinkWithPopoverClickCount") || 0) + 1);
-                                                                            }
-                                                                        });
-                                                                    });
-                                                                </script>
 
                                                             </div>
                                                             <br /> 4.7 out of 5 stars
@@ -8983,21 +8800,6 @@
                                         max-width: 1000px
                                     }
                                 </style>
-                                <script type="text/javascript">
-                                    P.when('jQuery').execute(function ($) {
-                                        $("#productDescription table").each(function () {
-                                            var width = $(this).attr('width');
-                                            if (width) width += 'px';
-                                            else width = 'auto';
-                                            $(this).css('width', width);
-
-                                            var padding = $(this).attr('cellpadding');
-                                            if (padding) padding += 'px';
-                                            else padding = '0px';
-                                            $(this).css('padding', padding);
-                                        });
-                                    });
-                                </script>
                                 <style>
                                     #productDescription h3 {
                                         margin: 0.75em 0px 0.375em -1px;
@@ -9006,21 +8808,6 @@
                             </div>
                         </div>
 
-                        <script type="text/javascript">
-                            P.when('A', 'ready').execute(function (A) {
-                                A.on('a:expander:mobileProductDescription_expander_m:toggle:expand', function () {
-                                    if (window && window.ue && window.ue.count) {
-                                        window.ue.count("productDescriptionPercolateSize:desktop:m:open", 1);
-                                    }
-                                });
-
-                                A.on('a:expander:mobileProductDescription_expander_m:toggle:collapse', function () {
-                                    if (window && window.ue && window.ue.count) {
-                                        window.ue.count("productDescriptionPercolateSize:desktop:m:close", 1);
-                                    }
-                                });
-                            });
-                        </script>
                     </div>
 
                     <div id="HLCXComparisonWidgetTechnical-2-T2" class="celwidget"
@@ -10992,9 +10779,6 @@
                                         data-state='{"asin":"B075CYMYK6","deviceType":"desktop","contextId":"","reviewCommentsAjaxUrl":"","reviewCommentSubmissionAjaxUrl":"","approvedAuthorAjaxUrl":"","reviewsAjaxUrl":"/hz/reviews-render/ajax/medley-filtered-reviews/get/","medleyReviewsAjaxUrl":"/hz/reviews-render/ajax/medley-reviews/get/","reviewerType":"","formatType":"","filterByKeyword":"","filterByLanguage":"","filterByStar":"","filterByHeight":"","filterByWeight":"","filterByAge":"","showLanguageFilter":false,"showHeightFilter":false,"showAgeFilter":false,"showStarFilter":false,"showMediaFilter":false,"showReviewerFilter":false,"languageOfPreference":"en_US","isCardTreatmentEnabled":false,"lazyWidgetLoaderBufferPixels":"1000","lazyWidgetLoaderDelayBeforeTriggering":"5000","lazyWidgetLoaderUrl":"/hz/reviews-render/ajax/lazy-widgets/stream","lazyWidgetCsrfToken":"hOL8jysdooNmerCke53lKAhZjKtf8wmRxQ3TixhLGOvVAAAAAGZ9CegAAAAB","lazyWidgetDomainWhitelist":["amazon.com","amazon.ca","amazon.com.mx","amazon.com.br","amazon.cl","amazon.com.co","amazon.co.uk","amazon.de","amazon.it","amazon.sa","amazon.com.tr","amazon.es","amazon.fr","amazon.in","amazon.ae","amazon.nl","amazon.se","amazon.pl","amazon.eg","amazon.co.za","amazon.com.be","amazon.com.ng","amazon.ie","amazon.co.jp","amazon.com.au","amazon.sg","amazon.cn"],"signinUrl":"https://www.amazon.com/ap/signin?openid.return_to\u003dhttps%3A%2F%2Fwww.amazon.com%2FInstant-Pot-Plus-Programmable-Sterilizer%2Fproduct-reviews%2FB075CYMYK6%3Fie%3DUTF8\u0026openid.identity\u003dhttp%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select\u0026openid.assoc_handle\u003dusflex\u0026openid.mode\u003dcheckid_setup\u0026marketPlaceId\u003dATVPDKIKX0DER\u0026language\u003den\u0026openid.claimed_id\u003dhttp%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select\u0026openid.ns\u003dhttp%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0","reftagTriggerUrl":"/hz/reviews-render/ajax/reftag-trigger","mobileImageGalleryUrl":"","productInfoUrl":"","disableScroll":false,"onLoadShowHideElements":"#cm-cr-dp-reviews-loading-wrapper,.cr-reviews-loading","marketplaceId":"ATVPDKIKX0DER","locale":"en_US"}'></span>
                                 </span>
 
-
-                                <script type="a-state"
-                                    data-a-state="{&quot;key&quot;:&quot;cr-weblab-state&quot;}">{}</script>
                                 <div id="reviewsMedley" data-hook="reviews-medley-widget"
                                     class="a-fixed-left-grid a-spacing-extra-large">
                                     <div class="a-fixed-left-grid-inner" style="padding-left:300px">

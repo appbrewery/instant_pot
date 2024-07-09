@@ -17,16 +17,16 @@
                             var b = a.data; if (b && "retail_service_worker_messaging" === b.feature && b.command && b.data) {
                                 var c = b.data; a = d.ue; var f = d.ueLogError; switch (b.command) {
                                     case "log_counter": a && k(a.count) &&
-                                        c.name && a.count(c.name, 0 === c.value ? 0 : c.value || 1); break; case "log_tag": a && k(a.tag) && c.tag && (a.tag(c.tag), b = d.uex, a.isl && k(b) && b("at")); break; case "log_error": f && k(f) && c.message && f({ message: c.message, logLevel: c.level || "ERROR", attribution: c.attribution || "RetailServiceWorker" }); break; case "log_weblab_trigger": if (!c.weblab || !c.treatment) break; a && k(a.trigger) ? a.trigger(c.weblab, c.treatment) : (h("sw:wt:miss"), h("sw:wt:miss:" + c.weblab + ":" + c.treatment)); break; default: h("sw:unsupported_message_command", 1)
+                                        c.name && a.count(c.name, 0 === c.value ? 0 : c.value || 1); break; case "log_tag": a && k(a.tag) && c.tag && (a.tag(c.tag), b = d.uex, a.isl && k(b) && b("at")); break; case "log_error": f && k(f) && c.message && f({ message: c.message, logLevel: c.level || "ERROR", attribution: c.attribution }); break; case "log_weblab_trigger": if (!c.weblab || !c.treatment) break; a && k(a.trigger) ? a.trigger(c.weblab, c.treatment) : (h("sw:wt:miss"), h("sw:wt:miss:" + c.weblab + ":" + c.treatment)); break; default: h("sw:unsupported_message_command", 1)
                                 }
                             }
                         }
-                        function v(a, b) { return "sw:" + (b || "") + ":" + a + ":" } function D(a, b) { e.register("/service-worker.js").then(function () { h(a + "success") }).catch(function (c) { y.logError(c, "[AUI SW] Failed to " + b + " service worker: ", "ERROR", "RetailPageServiceWorker"); h(a + "failure") }) } function E() { l.forEach(function (a) { q(a) }) } function n(a) { return a.capabilities.isAmazonApp && a.capabilities.android } function F(a, b, c) {
+                        function v(a, b) { return "sw:" + (b || "") + ":" + a + ":" } function D(a, b) { e.register("/service-worker.js").then(function () { h(a + "success") }).catch(function (c) { y.logError(c, "[AUI SW] Failed to " + b + " service worker: ", "ERROR"); h(a + "failure") }) } function E() { l.forEach(function (a) { q(a) }) } function n(a) { return a.capabilities.isAmazonApp && a.capabilities.android } function F(a, b, c) {
                             if (b) if (b.mshop && n(a)) a = v(c, "mshop_and"), b = b.mshop.action, l.push(a + "supported"), b(a, c); else if (b.browser) {
                                 a = u(/Chrome/i) &&
                                     !u(/Edge/i) && !u(/OPR/i) && !a.capabilities.isAmazonApp && !u(new RegExp(B + "bwv" + B + "b")); var f = b.browser; b = v(c, "browser"); a ? (a = f.action, l.push(b + "supported"), a(b, c)) : l.push(b + "unsupported")
                             }
-                        } function G(a, b, c) { a && l.push(v("register", c) + "unsupported"); b && l.push(v("unregister", c) + "unsupported"); E() } try { var e = navigator.serviceWorker } catch (a) { q("sw:nav_err") } (function () {
+                        } function G(a, b, c) { a && l.push(v("register", c) + "unsupported"); b && l.push(v("unregister", c) + "unsupported"); E() } try { var e = "" } catch (a) { q("sw:nav_err") } (function () {
                             if (e) {
                                 var a = function () { z("page_loaded", { rid: d.ue_id, mid: d.ue_mid, pty: d.ue_pty, sid: d.ue_sid, spty: d.ue_spty, furl: d.ue_furl }) }; x(e, "message",
                                     p); z("client_messaging_ready"); y.when("load").execute(a); x(e, "controllerchange", function () { z("client_messaging_ready"); "complete" === I.readyState && a() })
@@ -181,51 +181,6 @@
         content='AnYxlUPdkv2M8k9NC9VBezoH2y3WyIvs0asWOHKdhtdjucDN9pQj5JdLwt4oqrAqvxydLSjPKF27dvVJU9ULKt31269/BSwlm95n6sM5ASy+2NbV4xnn9U0DRFaEoLNxI2zXPtFVYRq4gS2HfZ3A4/5KHlZv54Ao3JoOxNC4VOPi5a2d/HJVtnDFVcrYk5JArdS5B6PAAsAw9r/q7CtJRhVupeFPSwZgSk+o4XgE2tI/+HBfAgRnvWQGDmauYqtZ3ccmHWNECwYcM0nQ'>
 
 
-    <script type='text/javascript'>
-        window.ue_ihe = (window.ue_ihe || 0) + 1;
-        if (window.ue_ihe === 1) {
-            (function (c) { c && 1 === c.ue_jsmtf && "object" === typeof c.P && "function" === typeof c.P.when && c.P.when("mshop-interactions").execute(function (e) { "object" === typeof e && "function" === typeof e.addListener && e.addListener(function (b) { "object" === typeof b && "ORIGIN" === b.dataSource && "number" === typeof b.clickTime && "object" === typeof b.events && "number" === typeof b.events.pageVisible && (c.ue_jsmtf_interaction = { pv: b.events.pageVisible, ct: b.clickTime }) }) }) })(ue_csm);
-            (function (c, e, b) {
-                function m(a) { f || (f = d[a.type].id, "undefined" === typeof a.clientX ? (h = a.pageX, k = a.pageY) : (h = a.clientX, k = a.clientY), 2 != f || l && (l != h || n != k) ? (r(), g.isl && e.setTimeout(function () { p("at", g.id) }, 0)) : (l = h, n = k, f = 0)) } function r() { for (var a in d) d.hasOwnProperty(a) && g.detach(a, m, d[a].parent) } function s() { for (var a in d) d.hasOwnProperty(a) && g.attach(a, m, d[a].parent) } function t() { var a = ""; !q && f && (q = 1, a += "&ui=" + f); return a } var g = c.ue, p = c.uex, q = 0, f = 0, l, n, h, k, d = {
-                    click: { id: 1, parent: b }, mousemove: {
-                        id: 2,
-                        parent: b
-                    }, scroll: { id: 3, parent: e }, keydown: { id: 4, parent: b }
-                }; g && p && (s(), g._ui = t)
-            })(ue_csm, window, document);
-
-
-            (function (s, l) {
-                function m(b, e, c) { c = c || new Date(+new Date + t); c = "expires=" + c.toUTCString(); n.cookie = b + "=" + e + ";" + c + ";path=/" } function p(b) { b += "="; for (var e = n.cookie.split(";"), c = 0; c < e.length; c++) { for (var a = e[c]; " " == a.charAt(0);)a = a.substring(1); if (0 === a.indexOf(b)) return decodeURIComponent(a.substring(b.length, a.length)) } return "" } function q(b, e, c) {
-                    if (!e) return b; -1 < b.indexOf("{") && (b = ""); for (var a = b.split("&"), f, d = !1, h = !1, g = 0; g < a.length; g++)f = a[g].split(":"), f[0] == e ? (!c || d ? a.splice(g, 1) : (f[1] = c, a[g] =
-                        f.join(":")), h = d = !0) : 2 > f.length && (a.splice(g, 1), h = !0); h && (b = a.join("&")); !d && c && (0 < b.length && (b += "&"), b += e + ":" + c); return b
-                } var k = s.ue || {}, t = 3024E7, n = ue_csm.document || l.document, r = null, d; a: { try { d = l.localStorage; break a } catch (u) { } d = void 0 } k.count && k.count("csm.cookieSize", document.cookie.length); k.cookie = {
-                    get: p, set: m, updateCsmHit: function (b, e, c) {
-                        try {
-                            var a; if (!(a = r)) { var f; a: { try { if (d && d.getItem) { f = d.getItem("csm-hit"); break a } } catch (k) { } f = void 0 } a = f || p("csm-hit") || "{}" } a = q(a, b, e); r = a = q(a, "t", +new Date);
-                            try { d && d.setItem && d.setItem("csm-hit", a) } catch (h) { } m("csm-hit", a, c)
-                        } catch (g) { "function" == typeof l.ueLogError && ueLogError(Error("Cookie manager: " + g.message), { logLevel: "WARN" }) }
-                    }
-                }
-            })(ue_csm, window);
-
-
-            (function (l, e) {
-                function c(b) { b = ""; var c = a.isBFT ? "b" : "s", d = "" + a.oid, g = "" + a.lid, h = d; d != g && 20 == g.length && (c += "a", h += "-" + g); a.tabid && (b = a.tabid + "+"); b += c + "-" + h; b != f && 100 > b.length && (f = b, a.cookie ? a.cookie.updateCsmHit(m, b + ("|" + +new Date)) : e.cookie = "csm-hit=" + b + ("|" + +new Date) + n + "; path=/") } function p() { f = 0 } function d(b) { !0 === e[a.pageViz.propHid] ? f = 0 : !1 === e[a.pageViz.propHid] && c({ type: "visible" }) } var n = "; expires=" + (new Date(+new Date + 6048E5)).toGMTString(), m = "tb", f, a = l.ue || {}, k = a.pageViz && a.pageViz.event &&
-                    a.pageViz.propHid; a.attach && (a.attach("click", c), a.attach("keyup", c), k || (a.attach("focus", c), a.attach("blur", p)), k && (a.attach(a.pageViz.event, d, e), d({}))); a.aftb = 1
-            })(ue_csm, ue_csm.document);
-
-
-            ue_csm.ue.stub(ue, "impression");
-
-
-            ue.stub(ue, "trigger");
-
-
-            if (window.ue && uet) { uet('bb'); }
-
-        }
-    </script>
 </head>
 
 
@@ -671,32 +626,7 @@
         <meta name="description"
             content="Shop Instant Pot at the Amazon Cookware store. Free Shipping on eligible items. Everyday low prices, save up to 50%." />
 
-
-        <script type="text/javascript">
-            P.when('atf').execute(function () {
-                P.now('dpJsAssetsLoadMarker').execute(function (markerObj) {
-                    if (!markerObj) {
-                        P.declare('dpJsAssetsLoadMarker', {});
-                        if (window.ue && ue.count) {
-                            ue.count("DPJsLoadedAfterATFMarkedCount", 1);
-                        }
-                    }
-                });
-            });
-        </script>
         <link rel="preload as=" script" crossorigin="anonymous" href="public/index.js">
-
-
-        <script type="text/javascript">
-            var iUrl = "assets/images/71QFLNzx2-L.__AC_SX300_SY300_QL70_FMwebp_.jpg";
-            (function () { var i = new Image; i.src = iUrl; })();
-        </script>
-
-        <script type="a-state"
-            data-a-state="{&quot;key&quot;:&quot;detail-page-device-type&quot;}">{"deviceType":"web"}</script>
-
-        <script type="a-state"
-            data-a-state="{&quot;key&quot;:&quot;metrics-schema&quot;}">{"widgetSchema":"dp:widget:","dimensionSchema":"dp:dims:"}</script>
 
         <style type="text/css">
             #cm_cr_dpwidget .a-size-micro {
@@ -1030,9 +960,7 @@
                                         data-csa-c-asin="B075CYMYK6" data-csa-c-is-in-initial-active-row="false">
                                         <div id="qualifiedBuybox" class="celwidget" data-feature-name="qualifiedBuybox">
                                             <div class="a-section">
-                                                <form method="post" id="addToCart"
-                                                    action="https://www.udemy.com/course/100-days-of-code/?referralCode=00555B4B1F6FC1A84FBC"
-                                                    class="a-content" autocomplete="off">
+                                                <form id="addToCart" class="a-content" autocomplete="off">
                                                     <input type="hidden" name="anti-csrftoken-a2z"
                                                         value="hNIFKFeFC1BpgWv5pJwGkxMamOKEGC0UxmzjUVaoPXDeAAAAAGZ9CedkZTg4MmM2Yy0xNTdiLTRlZWItODNkMC0xNjU1NWE4OWVlMzk="
                                                         id="desktop-atc-anti-csrf-token">
@@ -3100,7 +3028,6 @@
                                                                     <div id="imgTagWrapperId" class="imgTagWrapper">
                                                                         <img alt="Instant Pot Duo Plus 9-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté, Yogurt Maker, Warmer &amp;amp; Sterilizer, Includes App With Over 800 Recipes, Stainless Steel, 3 Quart"
                                                                             src="assets\images\71QFLNzx2-L._AC_SX679_.jpg"
-                                                                            onload="markFeatureRenderForImageBlock(); if(this.width/this.height &gt; 1.3){this.className += ' a-stretch-horizontal'}else{this.className += ' a-stretch-vertical'};this.onload='';setCSMReq('af');if(typeof addlongPoleTag === 'function'){ addlongPoleTag('af','desktop-image-atf-marker');};setCSMReq('cf')"
                                                                             data-a-image-name="landingImage"
                                                                             class="a-dynamic-image" id="landingImage"
                                                                             style="max-width:679px;max-height:679px;" />
@@ -4532,17 +4459,8 @@
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-                    if (window.ue) {
-                        ue.count("dp_aib_centerCol_height", document.getElementById('centerCol').clientHeight);
-                    }
-                </script>
 
                 <div id="hover-zoom-end" class="a-section a-spacing-small a-padding-mini"></div>
-                <script type="text/javascript">
-                    setCSMReq('af');
-                    addlongPoleTag('af', 'desktop-html-atf-marker');
-                </script>
                 <script type="text/javascript">
                     P.now('sp.load.js').execute(function (jsObj) {
                         if (!jsObj) {
@@ -4556,25 +4474,6 @@
                     });
                 </script>
 
-                <script type="text/javascript">
-                    if (typeof uex === 'function') { uex('ld', 'atfClientSideWaitTimeDesktop', { wb: 1 }); };
-                </script>
-
-                <script type="a-state"
-                    data-a-state="{&quot;key&quot;:&quot;URL-Refresh-State&quot;}">{"landingAsin":"B075CYMYK6","isUrlRefreshEnable":"1"}</script>
-
-
-
-
-                <script type="a-state"
-                    data-a-state="{&quot;key&quot;:&quot;metrics-schema&quot;}">{"widgetSchema":"dp:widget:","dimensionSchema":"dp:dims:"}</script>
-
-
-                <script
-                    type='text/javascript'>P.when('cf').execute(function () { ue.count('dp:widget:dpxSize:dpxBTFSize', 494); ue.count('dp:widget:dpxSize:dpxATFSize', 593); });</script>
-
-                <script
-                    type='text/javascript'>P.when('cf').execute(function () { ue.count('dp:widget:dpxSize:dpxBTFSize', 494); });</script>
 
                 <div id="emit-js_feature_div" class="celwidget" data-feature-name="emit-js" data-csa-c-type="widget"
                     data-csa-c-content-id="emit-js" data-csa-c-slot-id="emit-js_feature_div" data-csa-c-asin=""
@@ -6448,9 +6347,7 @@
                                                                 <div class="add-to-cart-string-data"
                                                                     data-display-string-list="[&quot;Choose items to buy together.&quot;,&quot;Add to Cart&quot;,&quot;Add 2 to Cart&quot;,&quot;Add all 3 to Cart&quot;]">
                                                                 </div>
-                                                                <form method="post"
-                                                                    action="/cart/add-to-cart/ref=pd_bxgy_crt?_encoding=UTF8&amp;pd_rd_w=qCyke&amp;content-id=amzn1.sym.60707ad7-5cf4-45ed-b044-7f953897a39a&amp;pf_rd_p=60707ad7-5cf4-45ed-b044-7f953897a39a&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
-                                                                    class="add-to-cart-data a-spacing-none">
+                                                                <form class="add-to-cart-data a-spacing-none">
                                                                     <div
                                                                         class="shoppingPortalCSRFWeblabTreatment _p13n-desktop-sims-fbt_style_spCSRFTreatment__-hwVO">
                                                                         spCSRF_Control</div>
@@ -10181,8 +10078,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_1_atc_a?_encoding=UTF8&amp;pd_rd_i=B075CYMYK6&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">
@@ -10222,8 +10118,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_2_atc_a?_encoding=UTF8&amp;pd_rd_i=B08PQ2KWHS&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">
@@ -10263,8 +10158,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_3_atc_a?_encoding=UTF8&amp;pd_rd_i=B08TMTJZ8L&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">
@@ -10304,8 +10198,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_4_atc_a?_encoding=UTF8&amp;pd_rd_i=B08ML2QXJT&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">
@@ -10345,8 +10238,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_5_atc_a?_encoding=UTF8&amp;pd_rd_i=B09MZTSSR2&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">
@@ -10386,8 +10278,7 @@
                                                                         <div class="a-section a-spacing-none">
                                                                             <div
                                                                                 class="a-section a-spacing-none add-to-cart-section">
-                                                                                <form method="post"
-                                                                                    action="/cart/add-to-cart/ref=pd_ci_mcx_pspc_dp_d_2_d_sccl_6_atc_a?_encoding=UTF8&amp;pd_rd_i=B09MZTP44L&amp;pd_rd_w=bEBQ3&amp;content-id=amzn1.sym.568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_p=568f3b6b-5aad-4bfd-98ee-d827f03151e4&amp;pf_rd_r=RWS1SJMKQFXGF0Q6PXJR&amp;pd_rd_wg=Go9NV&amp;pd_rd_r=d8b74d51-15c5-45b2-9e35-d59fd21d47ce"
+                                                                                <form
                                                                                     class="add-to-cart-data a-spacing-none">
                                                                                     <div
                                                                                         class="shoppingPortalCSRFWeblabTreatment _product-comparison-desktop_style_spCSRFTreatment__-hwVO">

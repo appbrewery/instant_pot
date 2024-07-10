@@ -9204,13 +9204,6 @@
           ? "font"
           : "fetch";
       }
-      function k(a, c) {
-        var g = /^(https?:|[/][/])/;
-        return (
-          !new RegExp("^(" + c.protocol + ")?//" + c.hostname + "/").test(a) &&
-          g.test(a)
-        );
-      }
       function q(g) {
         return function (c) {
           var b = document.createElement("link");
@@ -17063,11 +17056,6 @@
           a.$trigger &&
           a.$trigger.get(0) &&
           (d = e.attributionChain(a.$trigger.get(0)));
-        f.logError(
-          "https://tiny.amazon.com/aok2pdnt/auiamazdevepopopopo - Popover failed to be created, no data strategy provided. Please provide a valid dataStrategy param for popover.",
-          "FATAL",
-          d
-        );
       },
       getStrategyByName: function (a) {
         for (var d = 0, b = k.length; d < b; d++) {
